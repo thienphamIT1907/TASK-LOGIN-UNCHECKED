@@ -1,0 +1,12 @@
+========Task log============
+- configs
+- controllers
+- message
+- models -> Committed
+- repositories
+- security.jwt
+- services
+
+===========Problem===========
+- Message error not display at json -> Configured at JwtEntryPoint
+- Webconfig only start once when run app. It's cannot update when restart
