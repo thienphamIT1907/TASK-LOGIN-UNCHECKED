@@ -1,10 +1,10 @@
 ========Task log============
-- configs
-- controllers
-- message
+- configs -> Committed
+- controllers -> committed
+- message -> login_msg -> Committed
 - models -> Committed
 - repositories -> Committed
-- security.jwt
+- security.jwt -> Committed
 - services -> Committed
 
 ===========Problem===========
