@@ -2,6 +2,7 @@ package com.login.controllers;
 
 import com.login.message.request.Login;
 import com.login.message.response.JwtResponse;
+import com.login.models.Role;
 import com.login.models.User;
 import com.login.models.UserPrincipal;
 import com.login.repositories.UserRepository;
@@ -17,6 +18,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.Collection;
 
 
 @RestController
@@ -53,13 +55,11 @@ public class AuthRestAPIs {
                 () -> new UsernameNotFoundException("User not found!")
         );
 
-        JwtResponse response = new JwtResponse(token, userPrincipal.getUsername());
-
-        System.out.println("Token: " + token);
-        System.out.println("Username: " + userPrincipal.getUsername());
-        System.out.println("FullName: " + userResponse.getFullName());
-        System.out.println("Authorites: " + userPrincipal.getAuthorities());
-
+        JwtResponse response = new JwtResponse(
+                token,
+                userPrincipal.getUsername(),
+                userPrincipal.getAuthorities()
+        );
         return ResponseEntity.ok(response);
     }
 }
