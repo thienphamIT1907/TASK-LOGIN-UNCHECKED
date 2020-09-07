@@ -111,6 +111,23 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                         roles
                 );
                 userRepository.save(admin_2);
+
+                Set<Role> rolesForMember = new HashSet<>();
+                rolesForMember.add(roleRepository.findByRoleName(ERoleName.ROLE_MEMBER).orElseThrow(
+                        () -> new RuntimeException("Role doesn't exist")
+                ));
+
+                User member = new User(
+                        "membertest",
+                        passwordEncoder.encode("123123"),
+                        "MEMBER",
+                        "member@gmail.com",
+                        "Da Nang",
+                        "0998283831",
+                        null,
+                        rolesForMember
+                );
+                userRepository.save(member);
             }
         };
     }
