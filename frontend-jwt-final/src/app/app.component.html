@@ -1,0 +1,182 @@
+<div class="container-fluid p-0">
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light shadow fixed-top">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <a class="flex-md-fill text-md-center nav-link" href="#">
+        <i class="fa fa-home" aria-hidden="true"></i> Home
+      </a>
+      <a class="flex-md-fill text-md-center nav-link" href="#">
+        <i class="fa fa-eur" aria-hidden="true"></i> Grade A
+      </a>
+      <a class="flex-md-fill text-md-center nav-link" href="#">
+        <i class="fa fa-cloud" aria-hidden="true"></i>Grade B
+      </a>
+      <a class="flex-md-fill text-md-center nav-link" href="#">
+        <i class="fa fa-wrench" aria-hidden="true"></i> Grade D
+      </a>
+      <a class="flex-md-fill text-md-center nav-link" href="#">
+        <i class="fa fa-book" aria-hidden="true"></i> IQ Test
+      </a>
+      <a class="flex-md-fill text-md-center nav-link" href="#">
+        <i class="fa fa-globe" aria-hidden="true"></i> About Us
+      </a>
+    </div>
+  </nav>
+
+  <!-- BODY -->
+  <div class="row d-flex justify-content-md-around main-comp mx-0">
+
+    <!-- LEFT COLLUMN -->
+    <!-- Quan binding du lieu ra day -->
+    <div class="col-md-3">
+      <div class="sticky-top sticky-menu">
+        <div class="border p-0 rounded">
+          <div class="card-header p-2">
+            <i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Top Ranking
+          </div>
+          <div class="card-body body-background top-ranking">
+            <ul class="list-group">
+              <li class="list-group-item green">
+                <i class="fa fa-inbox pr-3" aria-hidden="true"></i>Naruto
+                <span class="badge badge-pill badge-secondary float-right mt-1">225</span>
+              </li>
+              <li class="list-group-item blue">
+                <i class="fa fa-inbox pr-3" aria-hidden="true"></i>Kakashi
+                <span class="badge badge-pill badge-secondary float-right mt-1">200</span>
+              </li>
+              <li class="list-group-item yellow">
+                <i class="fa fa-gift pr-3" aria-hidden="true"></i>Sasuke
+                <span class="badge badge-pill badge-secondary float-right mt-1">185</span>
+              </li>
+              <li class="list-group-item yellow">
+                <i class="fa fa-gift pr-3" aria-hidden="true"></i>Gaara
+                <span class="badge badge-pill badge-secondary float-right mt-1">160</span>
+              </li>
+              <li class="list-group-item yellow">
+                <i class="fa fa-gift pr-3" aria-hidden="true"></i>Obito
+                <span class="badge badge-pill badge-secondary float-right mt-1">101</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="border p-0 rounded online-support">
+          <div class="card-header p-2">
+            <i class="fa fa-phone" aria-hidden="true"></i> Online Support
+          </div>
+          <div class="card-body body-background">
+            <ul class="list-group">
+              <li class="list-group-item green">
+                <i class="fa fa-inbox pr-2" aria-hidden="true"></i> ONLINE
+                <span class="badge badge-pill badge-secondary float-right mt-1">Skype</span>
+              </li>
+              <li class="list-group-item blue">
+                <i class="fa fa-mobile pr-2" aria-hidden="true"></i> HOTLINE
+                <span class="badge badge-pill badge-secondary float-right mt-1">092.2216.3113</span>
+              </li>
+            </ul>
+            <div class="card online-support-massage">
+              <div class="card-body">
+                <img src="./images/messenger.jpg" alt="mess">
+                MESSENGER</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CENTER COLLUMN -->
+    <div class="col-md-6 test">
+      <div class="card-header p-2">
+        <ul class="nav navbar-nav" routerLinkActive="active">
+          <li *ngIf="authority === 'admin'" class="nav-item">
+            Task nào cần role admin thì bỏ selector vào đây
+            <pre>List admin feature</pre>
+            <a class="nav-link" routerLink="admin">
+              Chức năng 1
+            </a>
+            <a class="nav-link" routerLink="admin">
+              Chức năng 2
+            </a>
+            <a class="nav-link" routerLink="admin">
+              Chức năng 3
+            </a>
+          </li>
+          <li *ngIf="authority === 'member'" class="nav-item">
+            Task nào cần role member thì bỏ selector vào đây
+            <pre>List member feature</pre>
+            <a class="nav-link" routerLink="member">
+              Chức năng 1
+            </a>
+            <a class="nav-link" routerLink="member">
+              Chức năng 2
+            </a>
+            <a class="nav-link" routerLink="member">
+              Chức năng 3
+            </a>
+          </li>
+          <li *ngIf="authority === 'unauthorized'" class="nav-item">
+            <p>Login please!</p>
+          </li>
+        </ul>
+        <h1>Feature Area</h1>
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+
+    <!-- RIGHT COLLUMN -->
+    <div class="col-md-3 pr-4">
+      <div class="sticky-top sticky-menu">
+        <div class="border p-0 rounded">
+          <div class="card-header p-2">Customers</div>
+          <app-auth-login></app-auth-login>
+          <div class="card-body members yellow">
+            <div>
+              <div class="form-group row">
+                <div class="col-md-12">
+                  <i class="fa fa-user" aria-hidden="true"></i>
+                  MEMBERS
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-md-12">
+                  <div class="card">
+                    <div class="card-body p-2">Total
+                      <span class="badge badge-pill badge-secondary float-right mt-1">5</span>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <div class="card-body p-2">Newest
+                      <span class="badge badge-pill badge-secondary float-right mt-1">Gaara</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div>
+              </div>
+              <div class="card-body blue search-box">
+                <div>
+                  <div class="form-group row">
+                    <div class="col-md-12">
+                      <i class="fa fa-search" aria-hidden="true"></i>
+                      SEARCH
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <input type="text" class="form-control" id="search" placeholder="Search">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
