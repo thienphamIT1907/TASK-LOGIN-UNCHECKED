@@ -36,6 +36,10 @@ export class AuthLoginComponent implements OnInit, OnDestroy {
       this.loginForm.value.password
     );
 
+    console.log('TEST INFORMATION');
+    console.log(this.loginForm.get('username'));
+    console.log(this.loginForm.get('password'));
+
     this.subscription = this.authService.authLogin(this.loginInfo).subscribe({
       next: data => {
         console.log(data);
@@ -56,7 +60,7 @@ export class AuthLoginComponent implements OnInit, OnDestroy {
   valid(field: string, errorCode: string): boolean {
     return (
       this.loginForm.get(field).hasError(errorCode) &&
-      this.loginForm.touched
+      this.loginForm.get(field).touched
     );
   }
 }
